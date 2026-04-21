@@ -10,12 +10,18 @@ public class MainCuenta {
         cuenta1.estadoCuenta();
 
         System.out.println("\n---OPERACIONES---");
-        cuenta1.ingresar(300);
+        try {
+            cuenta1.ingresar(300);
+        } catch (SaldoInferiorCeroException sice) {
+            System.out.println("ERROR!! La cantidad a ingresar debe ser positiva");
+        }
         System.out.println("---------------------------------------------------");
         try {
             cuenta1.retirar(1500);
         } catch (SaldoMayorDisponibleException smde) {
-            System.out.println("\nERROR!! Estás intentando retirar una cantidad superior a tu saldo");
+            System.out.println("ERROR!! Estás intentando retirar una cantidad superior a tu saldo");
+        } catch (SaldoInferiorCeroException sice) {
+            System.out.println("ERROR!! La cantidad a retirar debe ser positiva");
         }
     }
 }
