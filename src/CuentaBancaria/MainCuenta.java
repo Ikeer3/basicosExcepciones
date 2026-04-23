@@ -17,9 +17,10 @@ public class MainCuenta {
         }
         System.out.println("---------------------------------------------------");
         try {
-            cuenta1.retirar(1500);
+            cuenta1.retirar(1700);
         } catch (SaldoMayorDisponibleException smde) {
-            System.out.println("ERROR!! Estás intentando retirar una cantidad superior a tu saldo");
+            System.out.println("ERROR!! No puedes retirar una cantidad superior a tu saldo");
+            System.out.println("Estás intentando retirar " + smde.getCantidad() + "€");
         } catch (SaldoInferiorCeroException sice) {
             System.out.println("ERROR!! La cantidad a retirar debe ser positiva");
         }

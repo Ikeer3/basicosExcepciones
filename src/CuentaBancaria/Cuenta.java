@@ -29,7 +29,7 @@ public class Cuenta {
             saldo = saldo - saldoRetirar;
             System.out.println("Retirados: " + saldoRetirar + "€" + "\nSaldo actual: " + saldo + "€");
         } else if (saldo < saldoRetirar) {
-            throw new SaldoMayorDisponibleException();
+            throw new SaldoMayorDisponibleException(saldoRetirar);
         } else {
             throw new SaldoInferiorCeroException();
         }
